@@ -1,0 +1,14 @@
+<a href="/users">Main Page</a>
+
+<form action="/users" method="get">
+    <input type="search" name="namePart" value="<?= htmlspecialchars($namePart) ?>" />
+    <input type="submit" value="Search" />
+</form>
+
+<ul>
+    <?php foreach ($users as $user) : ?>
+        <li>
+            <?= htmlspecialchars($user) ?>
+        </li>
+    <?php endforeach ?>
+</ul>
