@@ -1,14 +1,29 @@
-<a href="/users">Main Page</a>
-
-<form action="/users" method="get">
-    <input type="search" name="namePart" value="<?= htmlspecialchars($namePart) ?>" />
-    <input type="submit" value="Search" />
-</form>
-
-<ul>
-    <?php foreach ($users as $user) : ?>
-        <li>
-            <?= htmlspecialchars($user) ?>
-        </li>
-    <?php endforeach ?>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>All users</title>
+        <link rel="stylesheet" href="../../css/main.css">
+    </head>
+    <body>
+        <section class="links">
+            <a href="/users">Main Page</a>
+            <br>
+            <a href="/users/new">Register New User</a>
+        </section>
+        <section class="userList">
+            <h2>All users:</h2>
+            <ul>
+                <?php foreach ($users as $user) : ?>
+                    <li>
+                        <?= htmlspecialchars($user['name']) ?>:
+                        <?= htmlspecialchars($user['email']) ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </section>
+        <section class="success">
+            <h3><?= "{$flash['success'][0]}" ?></h3>
+        </section>
+    </body>
+</html>
