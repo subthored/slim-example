@@ -1,0 +1,19 @@
+<h2>New User Creation</h2>
+<!--<br>-->
+<form action="/users" method="post">
+    <div>
+        <label>
+            Name:
+            <input type="text" name="user[name]" value="<?=htmlspecialchars($user['name'])?>">
+            <?= $errors['name'] ?>
+        </label>
+    </div>
+    <div>
+        <label>
+            Email:
+            <input type="text" name="user[email]" value="<?=htmlspecialchars($user['email'])?>">
+            <?= $errors['email'] ?>
+        </label>
+    </div>
+    <input type="submit" value="Submit">
+</form>
