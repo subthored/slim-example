@@ -35,10 +35,8 @@ $app = AppFactory::createFromContainer($container);
 $app->addErrorMiddleware(true, true, true);
 $router = $app->getRouteCollector()->getRouteParser();
 
-$app->get('/', function ($request, $response) {
-    $response->getBody()->write('Welcome to Slim!');
-
-    return $response;
+$app->get('/', function ($request, $response) use ($router){
+    return $response->withRedirect("{$router->urlFor('users.index')}", 302);
 });
 
 //$app->get('/posts', function ($request, $response, $args) use ($repo) {
